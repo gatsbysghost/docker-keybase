@@ -46,4 +46,4 @@ WORKDIR /home/keybase
 
 CMD ["bash"]
 
-RUN run_keybase
+RUN run_keybase -g
