@@ -2,14 +2,14 @@
 
 [![Build Status][travis-ci-badge]][travis-ci]
 
-Docker container with signed Keybase.io client install.
+Docker container with signed Keybase.io client install and an installation of Ruby for automation purposes.
 
 ## Usage
 
 Run a named container and attach to it.
 
 ```
-docker run --name keybase -it langrisha/keybase
+docker run --name keybase -it sroo/keybase-ruby
 ```
 
 Login into your account and provision the device. You can now use keybase from within the container. Detach from the container to get back to your host.
@@ -36,7 +36,7 @@ You can extend the image and copy your user and device information.
 
 ```
 # Dockerfile
-FROM langrisha/keybase
+FROM sroo/keybase-ruby
 
 USER root
 COPY ./config/* .config/keybase/
@@ -58,15 +58,3 @@ The container process is configured to run as the user `keybase` belonging to th
 
 Do not forget to run the container process interactively and to login with
 your user when the container starts.
-
-## Changelog
-
-### [1.0.0] - 2016-03-25
-
-Initial release
-
-[travis-ci]: https://travis-ci.org/langri-sha/docker-keybase
-[travis-ci-badge]: https://travis-ci.org/langri-sha/docker-keybase.svg?branch=master
-
-
-[1.0.0]: https://github.com/langri-sha/docker-keybase/compare/cb994c3...237c641
