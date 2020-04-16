@@ -44,9 +44,6 @@ RUN \
 
 RUN sed -i '/^Environment=.*/a Environment=KEYBASE_ALLOW_ROOT=1' /usr/lib/systemd/user/keybase.service
 
-USER keybase
-WORKDIR /home/keybase
-
 CMD ["bash"]
 
 RUN export KEYBASE_ALLOW_ROOT=1
