@@ -49,4 +49,5 @@ WORKDIR /home/keybase
 
 CMD ["bash"]
 
+RUN export KEYBASE_ALLOW_ROOT=1
 RUN env KEYBASE_ALLOW_ROOT=1 run_keybase -g
