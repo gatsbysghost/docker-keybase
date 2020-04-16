@@ -41,10 +41,12 @@ RUN \
   ruby-build -v 2.6.1 /usr/local && rm -rfv /tmp/ruby-build-* && \
   gem install bundler
 
+
+RUN sed -i '/^Environment=.*/a Environment=KEYBASE_ALLOW_ROOT=1' /usr/lib/systemd/user/keybase.service
+
 USER keybase
 WORKDIR /home/keybase
 
 CMD ["bash"]
 
-RUN sed -i '/^Environment=.*/a Environment=KEYBASE_ALLOW_ROOT=1' /usr/lib/systemd/user/keybase.service
 RUN env KEYBASE_ALLOW_ROOT=1 run_keybase -g
